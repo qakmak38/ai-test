@@ -1,0 +1,12 @@
+name: 自动定时训练
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 访问 DOM Cloud 触发训练
+        run: curl -s https://impish-face-tey.mnz.dom.my.id/trigger_train.php
